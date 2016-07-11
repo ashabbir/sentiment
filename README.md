@@ -3,8 +3,6 @@
 forman start will run the api on localhost:5000
 
 ```
-api url
-http://nlp.carma.com 
 
 end points
  - get '/'    # gives u a status (i am up)
@@ -29,3 +27,5 @@ end points
  post goes in header
  Authorization: Token=cc628bs56kv1qf2wf32jyk4h0000gn
  ```
+
+```this was all written in 1 day so dont judge Auth should be not hard coded```
