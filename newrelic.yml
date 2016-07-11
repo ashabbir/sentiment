@@ -1,0 +1,20 @@
+common: &default_settings
+  license_key: 30f30c02dfc721e8c6a81facb64ad1cd182bd31c
+  app_name: NLP API
+  log_level: info
+
+development:
+  <<: *default_settings
+
+  developer_mode: false
+
+test:
+  <<: *default_settings
+  monitor_mode: false
+
+staging:
+  <<: *default_settings
+  monitor_mode: false
+production:
+  <<: *default_settings
+  
