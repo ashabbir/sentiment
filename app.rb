@@ -31,7 +31,7 @@ post '/to_utf_8' do
   params = JSON.parse(request.body.read)
   content = params['content']
   d = CharlockHolmes::EncodingDetector.detect(content)
-  { content: CharlockHolmes::Converter.convert(x , d[:encoding], 'UTF-8') }.to_json
+  { content: CharlockHolmes::Converter.convert(content , d[:encoding], 'UTF-8') }.to_json
 end
 
 post '/sentiment' do
