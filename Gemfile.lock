@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    charlock_holmes (0.7.3)
     fast-stemmer (1.0.2)
     json (1.8.3)
     newrelic_rpm (3.13.0.299)
@@ -19,6 +20,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  charlock_holmes
   fast-stemmer
   json
   newrelic_rpm
@@ -28,4 +30,4 @@ DEPENDENCIES
   sinatra
 
 BUNDLED WITH
-   1.10.5
+   1.11.2

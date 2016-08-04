@@ -19,6 +19,21 @@ get '/' do
   "#{Time.now} : I am UP"
 end
 
+post '/detect_encoding' do
+  content_type :json
+  params = JSON.parse(request.body.read)
+  content = params['content'].to_s
+  CharlockHolmes::EncodingDetector.detect(content).to_json
+end
+
+post '/to_utf_8' do
+  content_type :json
+  params = JSON.parse(request.body.read)
+  content = params['content']
+  d = CharlockHolmes::EncodingDetector.detect(content)
+  { content: CharlockHolmes::Converter.convert(x , d[:encoding], 'UTF-8') }.to_json
+end
+
 post '/sentiment' do
   content_type :json
   params = JSON.parse(request.body.read)
