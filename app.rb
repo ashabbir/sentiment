@@ -34,6 +34,20 @@ post '/to_utf_8' do
   { content: CharlockHolmes::Converter.convert(content , d[:encoding], 'UTF-8') }.to_json
 end
 
+post '/topic' do
+  content_type :json
+  params = JSON.parse(request.body.read)
+  content = params['content']
+  halt 422 if content.nil?
+  processor = Summarize.new
+
+  {
+    topic: processor.topics(content),
+    ttl: "#{(Time.now - @start).round(3)} sec"
+  }.to_json
+
+end
+
 post '/sentiment' do
   content_type :json
   params = JSON.parse(request.body.read)

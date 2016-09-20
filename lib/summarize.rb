@@ -26,4 +26,10 @@ class Summarize
   rescue => e
     return @text
   end
+
+  def topics(text)
+    @text  = text
+    @text = @text.to_s.scrub
+    OTS.parse(@text).topics.take(4)
+  end
 end
