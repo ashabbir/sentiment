@@ -6,13 +6,14 @@ configure { set :server, :puma }
 
 before do
   pass if request.request_method.upcase == 'GET'
+  @start = Time.now
 
   if env["HTTP_AUTHORIZATION"] == 'Token=cc628bs56kv1qf2wf32jyk4h0000gn'
-    @start = Time.now
     pass
   else
-    halt 403
+    #halt 403
   end
+  pass
 end
 
 get '/' do
